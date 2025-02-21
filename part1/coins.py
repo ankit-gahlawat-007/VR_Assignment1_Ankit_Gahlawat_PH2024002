@@ -30,7 +30,7 @@ image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB for K-Means
 reshaped_img = image_rgb.reshape((-1, 3))  # Flatten the image for clustering
 
 # Apply K-Means Clustering
-K = 2  # Optimized number of clusters
+K = 2
 _, labels, centers = cv2.kmeans(np.float32(reshaped_img), K, None, None , 10, cv2.KMEANS_RANDOM_CENTERS)
 
 segmented_img = centers[labels.flatten()].reshape(image.shape).astype(np.uint8)
