@@ -4,7 +4,7 @@
 
 The script for part 1 is "coins.py". <br />
 It uses the following libraries: _cv2_ and _numpy_. <br />
-To run the script, simply do "python coins.py". <br />
+To run the script, simply run "python coins.py". <br />
 
 This is the input image: ![a](https://github.com/user-attachments/assets/1d9b54ce-8149-45e7-b070-95fd6aaa9e07)
 
@@ -35,6 +35,37 @@ The output is saved as masks.jpg:
 For counting the number of coins, the segmented mask images is used. <br />
 First, the boundaries (contours) of each coin is detected. <br />
 The total number of boundaries in this case will be the total number of coins in the image: **9**
+
+
+
+**Part 2: Create a stitched panorama from multiple overlapping images.**
+
+The script for part 2 is "image_stitching.py". <br />
+It uses the following library: _cv2_. <br />
+To run the script, simply run "python image_stitching.py". <br />
+The 5 images to be stitched together are kept inside the input directory. <br />
+
+**a. Extract Key Points**
+- **Detect key points in overlapping images.**
+
+To detect the keypoints and compute the descriptors for the pairs of images, SIFT is used. <br />
+Lowe's ratio test with distance as 0.75 is used to remove the bad matches. <br />
+The matches for the pairs of images are saved inside the output directory. For reference, the matches between 1st and 2nd image are shown below: 
+
+![matches_1_2](https://github.com/user-attachments/assets/86a6611f-33c0-4127-86fe-c28cde2b898e)
+
+**b. Image Stitching**
+- **Use the extracted key points to align and stitch the images into a single panorama.**
+- **Provide the final panorama image as output.**
+
+Using the keypoints and descriptors, one can get the Homography matrix - a transformation matrix that will take us from one image to another. <br />
+Using the homography matrix the images can be warped and blended together to create the final panorama. <br />
+For our use-case, the stitcher function from the opencv is used. <br />
+The final panorama output is shown below:
+
+![panorama](https://github.com/user-attachments/assets/29aec466-f1a9-45a3-9669-cec6780baee5)
+
+
 
 
 
