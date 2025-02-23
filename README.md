@@ -34,8 +34,10 @@ The output is saved as masks.jpg:
 
 For counting the number of coins, the segmented mask images is used. <br />
 First, the boundaries (contours) of each coin is detected. <br />
-The total number of boundaries in this case will be the total number of coins in the image: **9**
-
+The total number of boundaries in this case will be the total number of coins in the image: **9** 
+<br />
+<br />
+<br />
 
 
 **Part 2: Create a stitched panorama from multiple overlapping images.**
